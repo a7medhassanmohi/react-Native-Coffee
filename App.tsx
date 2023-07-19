@@ -1,20 +1,104 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
+import React, { useState } from "react";
+import { Entypo, MaterialCommunityIcons, EvilIcons } from "@expo/vector-icons";
+import Carousel from 'react-native-snap-carousel-v4';
+import CoffeeCard from "./component/CoffeeCard";
+import Navigation, { RootStackParamList } from "./component/Navigation";
+import NavigationScreen from "./component/Navigation";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+export const categories = [
+  {
+    id: 1,
+    title: "Cappuccino",
+  },
+  {
+    id: 2,
+    title: "Latte",
+  },
+  {
+    id: 3,
+    title: "Espresso",
+  },
+  {
+    id: 4,
+    title: "Mocha",
+  },
+  {
+    id: 5,
+    title: "Americano",
+  },
+];
+export interface CoffeeItem{
+  id:number,
+  name:string,
+  price:string,
+  volume:string,
+  stars:string,
+  image:any,
+  desc:string,
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+export const coffeeItems: CoffeeItem[] = [
+  {
+    id: 1,
+    name: 'Black Coffee',
+    price: '25.50',
+    volume: '116 ml',
+    stars: '4.6',
+    image: require('./assets/images/coffee1.png'),
+    desc: 'The taste of coffee can vary depending on factors such as the type of beans, roast level, brewing method, and the addition of any flavors or sweeteners.'
   },
-});
+  
+  {
+    id: 2,
+    name: 'Cappuccino',
+    price: '15.50',
+    volume: '110 ml',
+    stars: '4.3',
+    image: require('./assets/images/coffee2.png'),
+    desc: 'The taste of coffee can vary depending on factors such as the type of beans, roast level, brewing method, and the addition of any flavors or sweeteners.'
+  },
+  
+  {
+    id: 3,
+    name: 'Espresso',
+    price: '30.00',
+    volume: '100 ml',
+    stars: '4.0',
+    image: require('./assets/images/coffee3.png'),
+    desc: 'The taste of coffee can vary depending on factors such as the type of beans, roast level, brewing method, and the addition of any flavors or sweeteners.'  },
+  
+  {
+    id: 4,
+    name: 'Latte',
+    price: '10.30',
+    volume: '80 ml',
+    stars: '3.5',
+    image: require('./assets/images/coffee4.png'),
+    desc: 'The taste of coffee can vary depending on factors such as the type of beans, roast level, brewing method, and the addition of any flavors or sweeteners.'  },
+  
+  {
+    id: 5,
+    name: 'Mocha',
+    price: '23.10',
+    volume: '120 ml',
+    stars: '4.7',
+    image: require('./assets/images/coffee5.png'),
+    desc: 'The taste of coffee can vary depending on factors such as the type of beans, roast level, brewing method, and the addition of any flavors or sweeteners.'  },
+  
+
+];
+
+const App: React.FC = () => {
+ return <NavigationScreen/>
+
+};
+
+export default App;
